@@ -13,7 +13,7 @@ class EmployeePayRollData{
         if(nameRegex.test(name))
         this._name = name;
         else 
-        throw 'Invalid Name';
+        throw 'Enter a Valid Name';
     }
 
     get profilePic()
