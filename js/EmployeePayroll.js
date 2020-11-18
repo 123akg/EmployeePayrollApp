@@ -1,6 +1,18 @@
 class EmployeePayRollData{
 
-    
+    get id()
+    {
+        return this._id;
+    }
+
+    set id(id)
+    {
+        let idRegex = RegExp('[1-9]{1}[0-9]*');
+        if(idRegex.test(id))
+        this._id = id;
+        else
+        throw 'Incorrect Id';
+    }
 
     get name()
     {
@@ -79,7 +91,7 @@ class EmployeePayRollData{
         this._startDate = startDate;
         }
         else
-        throw 'Invalid StartDate';
+        throw 'Enter a vakid Start date';
     }
 
     toString()
@@ -87,7 +99,7 @@ class EmployeePayRollData{
         const format = {year:'numeric', month:'long', day:'numeric'};
         const date = this.startDate === undefined ? "undefined" :
                      this.startDate.toLocaleDateString("en-US",format);
-        return "Name = "+this.name+", Gender = "+this.gender+", ProfilePic = "+this.profilePic+", Department = "+this.department+", Salary = "+this.salary+
+        return "Id = "+this.id+", Name = "+this.name+", Gender = "+this.gender+", ProfilePic = "+this.profilePic+", Department = "+this.department+", Salary = "+this.salary+
                 ", StartDate = "+date+", Note = "+this.note;
     }
 
