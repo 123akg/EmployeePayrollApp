@@ -25,9 +25,8 @@ window.addEventListener('DOMContentLoaded', (event) =>{
     
     
     const save = () => {
-        let employeePayrollData;
         try{
-            employeePayrollData = createEmployeePayroll();
+            let employeePayrollData = createEmployeePayroll();
             createAndUpdateStorage(employeePayrollData);
         }catch(e){
             return;
@@ -66,17 +65,17 @@ window.addEventListener('DOMContentLoaded', (event) =>{
     }
     
     function createAndUpdateStorage(employeePayrollData){
-        let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+        let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePeyrollList"));
     
         if(employeePayrollList != undefined){
-            employeePayrollList.push(EmployeePayrollData);
+            employeePayrollList.push(employeePayrollData);
         }
         else{
             employeePayrollList = [employeePayrollData];
         }
     
         alert(employeePayrollList.toString());
-        localStorage.setItem("EmployeePayrollList",JSON.stringify(employeePayrollList));
+        localStorage.setItem("EmployeePeyrollList",JSON.stringify(employeePayrollList));
     }
     
     const resetForm = () => {
